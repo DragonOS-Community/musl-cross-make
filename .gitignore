@@ -12,3 +12,6 @@
 /isl-*/
 /build/
 *.tgz
+*.tar.xz
+/riscv64-linux-musl-cross-gcc-*/
+/x86_64-linux-musl-cross/

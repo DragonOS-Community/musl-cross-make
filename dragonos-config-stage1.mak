@@ -7,8 +7,12 @@
 # There is no default TARGET; you must select one here or on the make
 # command line. Some examples:
 
+# CURRENT_ARCH="riscv64"
+CURRENT_ARCH="x86_64"
+
 # TARGET = i486-linux-musl
-TARGET = x86_64-linux-musl
+# TARGET = x86_64-linux-musl
+TARGET = ${CURRENT_ARCH}-linux-musl
 # TARGET = arm-linux-musleabi
 # TARGET = arm-linux-musleabihf
 # TARGET = sh2eb-linux-muslfdpic
@@ -59,7 +63,7 @@ TARGET = x86_64-linux-musl
 # system you build on can natively (or via binfmt_misc and qemu) run
 # binaries produced by the existing toolchain (in this example, i486).
 
-# COMMON_CONFIG += CC="x86_64-linux-musl-gcc -static --static" CXX="x86_64-linux-musl-g++ -static --static"
+#COMMON_CONFIG += CC="x86_64-linux-musl-gcc -static --static" CXX="x86_64-linux-musl-g++ -static --static"
 
 # Recommended options for smaller build for deploying binaries:
 

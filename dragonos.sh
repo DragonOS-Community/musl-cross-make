@@ -18,6 +18,13 @@ install_musl_cross() {
     source $HOME/.zshrc || exit 1
 }
 
+build_stage1(){
+    echo "Building stage 1..."
+    cp ./dragonos-config-stage1.mak ./config.mak || exit 1
+    make clean || exit 1
+    make -j $(nproc) || exit 1
+}
+
 build_stage2(){
     echo "Building stage 2..."
     cp ./dragonos-config-stage2.mak ./config.mak || exit 1
@@ -43,10 +50,11 @@ then
 fi
 
 # Check if the toolchain is installed
-if [ $__TOOLCHAIN_INSTALLED -eq 0 ]
-then
-    install_musl_cross || exit 1
-fi
+# if [ $__TOOLCHAIN_INSTALLED -eq 0 ]
+# then
+#     install_musl_cross || exit 1
+# fi
 
-build_stage2 || exit 1
+build_stage1 || exit 1
+# build_stage2 || exit 1
 
